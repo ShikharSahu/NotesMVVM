@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity(), NotesRVAdapterI {
     private lateinit var viewModel: NoteViewModel
     private lateinit var binding : ActivityMainBinding
     private lateinit var adapter : NotesRecyclerViewAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -43,14 +44,10 @@ class MainActivity : AppCompatActivity(), NotesRVAdapterI {
                 binding.tvUserInput.setText("")
             }
         }
-
-
     }
 
     override fun onItemClicked(note: Note) {
         viewModel.delete(note)
         Toast.makeText(baseContext, note.text +" deleted", Toast.LENGTH_SHORT ).show()
-
-
     }
 }
